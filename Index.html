@@ -3,27 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="VEF Automatización - Especialistas en PLC, CODESYS, IIoT e Industria 4.0. Control Preciso. Resultados Medibles.">
     <title>VEF Automatización | Control Preciso. Resultados Medibles.</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- CSS externo -->
     <link rel="stylesheet" href="Style.css">
 </head>
 <body>
     <div class="bg-grid"></div>
 
-    <!-- Navegación -->
-    <nav id="navbar" role="navigation" aria-label="Navegación principal">
+    <nav id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo" aria-label="VEF Automatización Inicio">
-                <span class="logo-icon">◈</span>
-                <span class="logo-text">VEF Automatización</span>
-            </a>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Abrir menú" aria-expanded="false">
-                <span class="hamburger"></span>
-            </button>
-            <ul class="nav-links" id="navLinks">
+            <a href="#" class="logo">VEF Automatización</a>
+            <ul class="nav-links">
                 <li><a href="#mision">Misión</a></li>
                 <li><a href="#valores">Valores</a></li>
                 <li><a href="#diferenciacion">Diferenciación</a></li>
@@ -32,16 +26,19 @@
             </ul>
         </div>
     </nav>
-   <div class="containers"></div>
-               <img SRC = "IMG/logo.jpeg" >
-        <div class="text">Your Text Here</div>
-    <!-- Hero Section -->
-    <header class="hero" role="banner">
+
+    <section class="hero">
         <div class="hero-content">
-            <span class="hero-tag" id="typewriter"></span>
+            <span class="hero-tag">// Sistemas de Control Industrial 4.0</span>
             <h1>VEF Automatización</h1>
-            <p class="hero-subtitle">Control Preciso. Resultados Medibles.</p>
             
+            <!-- Logo local (asegúrate de que logo.png esté en la misma carpeta) -->
+            <div class="hero-logo">
+                
+                <IMG src="IMG/logo.jpeg" alt="VEF Automatización Logo" class="industrial-logo">
+            </div>
+
+            <p class="hero-subtitle">Control Preciso. Resultados Medibles.</p>
             
             <div class="hero-values">
                 <div class="value-badge">
@@ -60,291 +57,260 @@
 
             <a href="#mision" class="cta-button">Explorar Soluciones</a>
         </div>
-        <div class="scroll-indicator" aria-hidden="true">
-            <span class="mouse"></span>
+    </section>
+
+    <section id="mision" class="reveal">
+        <div class="section-header">
+            <span class="section-tag">// 01. Propósito Estratégico</span>
+            <h2 class="section-title">Misión y Visión</h2>
         </div>
-    </header>
 
-    <main>
-        <!-- Misión y Visión -->
-        <section id="mision" class="section reveal">
-            <div class="section-header">
-                <span class="section-tag">// 01. Propósito Estratégico</span>
-                <h2 class="section-title">Misión y Visión</h2>
-            </div>
-
-            <div class="mission-vision">
-                <article class="mv-card">
-                    <div class="mv-icon" aria-hidden="true">🎯</div>
-                    <h3>Misión</h3>
-                    <blockquote class="quote">
-                        "Transformar la industria mediante soluciones de automatización inteligente que maximicen la eficiencia operativa, minimicen errores de proceso y garanticen la continuidad productiva de nuestros clientes."
-                    </blockquote>
-                    <span class="code-comment">// Compromisos operativos:</span>
-                    <ul class="commitments">
-                        <li>Diseñar e implementar sistemas PLC robustos para control de líneas de producción</li>
-                        <li>Desarrollar diagnósticos avanzados de variables de error (gestión de #errWord)</li>
-                        <li>Proveer integración de módulos de medición industrial (meterModuleLine)</li>
-                        <li>Ofrecer soporte técnico especializado con respuesta ágil</li>
-                    </ul>
-                </article>
-
-                <article class="mv-card">
-                    <div class="mv-icon" aria-hidden="true">🚀</div>
-                    <h3>Visión 2030</h3>
-                    <blockquote class="quote">
-                        "Ser referentes latinoamericanos en automatización industrial 4.0, reconocidos por convertir datos de proceso en decisiones inteligentes y por la fiabilidad de nuestros sistemas de control en entornos de producción crítica."
-                    </blockquote>
-                    <span class="code-comment">// Metas estratégicas:</span>
-                    <ul class="commitments">
-                        <li>Liderar la adopción de IIoT (Industrial Internet of Things) en plantas manufactureras</li>
-                        <li>Desarrollar algoritmos predictivos para mantenimiento de equipos industriales</li>
-                        <li>Expandir presencia a 5 países con proyectos de automatización integral</li>
-                    </ul>
-                </article>
-            </div>
-        </section>
-
-        <!-- Valores Corporativos -->
-        <section id="valores" class="section reveal">
-            <div class="section-header">
-                <span class="section-tag">// 02. Fundamentos</span>
-                <h2 class="section-title">Valores Corporativos</h2>
-            </div>
-
-            <div class="values-grid">
-                <article class="value-card">
-                    <div class="value-header">
-                        <div class="value-icon" aria-hidden="true">V</div>
-                        <h3>Valor</h3>
-                    </div>
-                    <p>Entregamos soluciones que generan ROI tangible: reducción de downtime, optimización de consumo energético y trazabilidad completa de procesos.</p>
-                </article>
-
-                <article class="value-card">
-                    <div class="value-header">
-                        <div class="value-icon" aria-hidden="true">E</div>
-                        <h3>Eficiencia</h3>
-                    </div>
-                    <p>Diseñamos código limpio, estructuras de programación modulares y arquitecturas escalables que maximizan el rendimiento de cada ciclo de scan.</p>
-                </article>
-
-                <article class="value-card">
-                    <div class="value-header">
-                        <div class="value-icon" aria-hidden="true">F</div>
-                        <h3>Futuro</h3>
-                    </div>
-                    <p>Anticipamos tendencias: desde CODESYS hasta integración con sistemas MES/ERP, preparando a nuestros clientes para la manufactura del mañana.</p>
-                </article>
-            </div>
-
-            <!-- Principios Operativos -->
-            <div class="principles-section">
-                <span class="section-tag">// Principios Operativos</span>
-                <h3 class="principles-title">Códigos de Conducta</h3>
-                
-                <div class="principles-grid">
-                    <article class="principle-card precision">
-                        <h4>Precisión Técnica</h4>
-                        <p>Cada línea de código es probada; cada variable de error tiene protocolo de respuesta.</p>
-                    </article>
-                    <article class="principle-card transparency">
-                        <h4>Transparencia</h4>
-                        <p>Documentación clara de arquitecturas, versiones y cambios en sistemas PLC.</p>
-                    </article>
-                    <article class="principle-card collaboration">
-                        <h4>Colaboración Industrial</h4>
-                        <p>Trabajamos junto a operadores de planta, no solo para ellos.</p>
-                    </article>
-                    <article class="principle-card improvement">
-                        <h4>Mejora Continua</h4>
-                        <p>Análisis post-implementación para optimizar tiempos de ciclo y diagnósticos.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Diferenciación -->
-        <section id="diferenciacion" class="section reveal">
-            <div class="section-header">
-                <span class="section-tag">// 03. Ventaja Competitiva</span>
-                <h2 class="section-title">Propuesta de Valor</h2>
-            </div>
-
-            <div class="diff-container">
-                <h3 class="diff-subtitle">¿Por qué VEF vs. integradores tradicionales?</h3>
-                
-                <div class="diff-table-container">
-                    <table class="diff-table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Competencia Típica</th>
-                                <th scope="col">VEF Automatización</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><span class="cross-icon" aria-hidden="true">✗</span> Entrega el PLC programado</td>
-                                <td><span class="check-icon" aria-hidden="true">✓</span> Entrega el PLC + diagnóstico predictivo integrado</td>
-                            </tr>
-                            <tr>
-                                <td><span class="cross-icon" aria-hidden="true">✗</span> Responde cuando falla algo</td>
-                                <td><span class="check-icon" aria-hidden="true">✓</span> Anticipa fallas mediante análisis de #errWord históricos</td>
-                            </tr>
-                            <tr>
-                                <td><span class="cross-icon" aria-hidden="true">✗</span> Programa en una marca</td>
-                                <td><span class="check-icon" aria-hidden="true">✓</span> Especialista multi-plataforma (Siemens, Rockwell, Schneider, CODESYS)</td>
-                            </tr>
-                            <tr>
-                                <td><span class="cross-icon" aria-hidden="true">✗</span> Código estándar</td>
-                                <td><span class="check-icon" aria-hidden="true">✓</span> Bibliotecas propias de módulos de medición reutilizables</td>
-                            </tr>
-                            <tr>
-                                <td><span class="cross-icon" aria-hidden="true">✗</span> Soporte telefónico</td>
-                                <td><span class="check-icon" aria-hidden="true">✓</span> Ingeniero asignado con conocimiento de tu arquitectura específica</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="highlight-box">
-                    <p>"No vendemos automatización, vendemos tranquilidad operativa medible en horas de producción recuperadas."</p>
-                </div>
-            </div>
-
-            <!-- Lemas -->
-            <div class="slogans-section">
-                <span class="section-tag">// Lema Comercial</span>
-                <h3 class="main-slogan">"Control Preciso. Resultados Medibles."</h3>
-                <div class="slogans-grid">
-                    <div class="slogan-card">
-                        <small>Marketing Técnico</small>
-                        <strong>"Automatización que habla tu idioma industrial"</strong>
-                    </div>
-                    <div class="slogan-card">
-                        <small>Propuestas B2B</small>
-                        <strong>"De la señal al dato, del dato a la decisión"</strong>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Servicios -->
-        <section id="servicios" class="section reveal">
-            <div class="section-header">
-                <span class="section-tag">// 04. Líneas de Servicio</span>
-                <h2 class="section-title">Pilares de Servicio</h2>
-            </div>
-
-            <div class="pillars-container">
-                <article class="pillar-card">
-                    <span class="pillar-number" aria-hidden="true">01</span>
-                    <h3>Consultoría en Automatización Industrial</h3>
-                    <ul class="pillar-list">
-                        <li>Auditoría de arquitecturas PLC existentes</li>
-                        <li>Análisis de variables críticas y mapeo de errores (#errWord)</li>
-                        <li>Roadmap de migración a Industria 4.0</li>
-                    </ul>
-                    <div class="deliverable">
-                        <span class="deliverable-label">Entregable:</span>
-                        <span>Informe técnico con KPIs de mejora proyectados</span>
-                    </div>
-                </article>
-
-                <article class="pillar-card">
-                    <span class="pillar-number" aria-hidden="true">02</span>
-                    <h3>Integración de Sistemas</h3>
-                    <ul class="pillar-list">
-                        <li>Programación de PLCs (ladder, SFC, ST/CODESYS)</li>
-                        <li>Configuración de módulos de medición (meterModuleLine1, meterModuleLine3...)</li>
-                        <li>Integración HMI/SCADA con dashboards de error en tiempo real</li>
-                        <li>Comunicación industrial: Profinet, EtherNet/IP, Modbus TCP</li>
-                    </ul>
-                    <div class="deliverable">
-                        <span class="deliverable-label">Entregable:</span>
-                        <span>Sistema documentado, probado en FAT/SAT, con manuales de operación</span>
-                    </div>
-                </article>
-
-                <article class="pillar-card">
-                    <span class="pillar-number" aria-hidden="true">03</span>
-                    <h3>Capacitación Técnica Especializada</h3>
-                    <ul class="pillar-list">
-                        <li>Talleres "Desde el cable hasta el dato" (electricistas → programadores)</li>
-                        <li>Curso: "Diagnóstico avanzado de errores en PLC"</li>
-                        <li>Certificación interna: "Operador 4.0 VEF"</li>
-                    </ul>
-                    <div class="deliverable">
-                        <span class="deliverable-label">Entregable:</span>
-                        <span>Operadores autónomos en resolución de alarmas de primer nivel</span>
-                    </div>
-                </article>
-
-                <article class="pillar-card">
-                    <span class="pillar-number" aria-hidden="true">04</span>
-                    <h3>Mantenimiento Predictivo Digital</h3>
-                    <ul class="pillar-list">
-                        <li>Monitoreo remoto de tendencias de error</li>
-                        <li>Alertas automáticas antes de fallas críticas</li>
-                        <li>Actualización de firmware y optimización de tiempos de scan</li>
-                    </ul>
-                    <div class="deliverable">
-                        <span class="deliverable-label">Entregable:</span>
-                        <span>Uptime >99% contractual</span>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Manifesto -->
-        <section class="section reveal">
-            <div class="manifesto">
-                <span class="section-tag">// Manifesto VEF</span>
-                <blockquote class="manifesto-text">
-                    En VEF creemos que cada milisegundo de un ciclo de scan cuenta. Que cada variable de error <strong>(#errWord)</strong> es una oportunidad de mejora, no solo un número en un registro. Trabajamos donde la producción no puede detenerse, donde la precisión no es negociable, donde el futuro de la manufactura se escribe en <strong>código robusto</strong> y <strong>arquitecturas confiables</strong>.
-                </blockquote>
-                <p class="manifesto-closing">
-                    No somos integradores. Somos arquitectos de continuidad productiva.
+        <div class="mission-vision">
+            <div class="mv-card">
+                <div class="mv-icon">🎯</div>
+                <h3>Misión</h3>
+                <p class="quote">
+                    "Transformar la industria mediante soluciones de automatización inteligente que maximicen la eficiencia operativa, minimicen errores de proceso y garanticen la continuidad productiva de nuestros clientes."
                 </p>
+                <span class="code-comment">// Compromisos operativos:</span>
+                <ul class="commitments">
+                    <li>Diseñar e implementar sistemas PLC robustos para control de líneas de producción</li>
+                    <li>Desarrollar diagnósticos avanzados de variables de error (gestión de #errWord)</li>
+                    <li>Proveer integración de módulos de medición industrial (meterModuleLine)</li>
+                    <li>Ofrecer soporte técnico especializado con respuesta ágil</li>
+                </ul>
             </div>
-        </section>
-    </main>
 
-    <!-- Footer -->
-    <footer id="contacto" role="contentinfo">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <div class="footer-logo">VEF Automatización</div>
-                <p class="footer-tagline">"Control Preciso. Resultados Medibles."</p>
+            <div class="mv-card">
+                <div class="mv-icon">🚀</div>
+                <h3>Visión 2030</h3>
+                <p class="quote">
+                    "Ser referentes latinoamericanos en automatización industrial 4.0, reconocidos por convertir datos de proceso en decisiones inteligentes y por la fiabilidad de nuestros sistemas de control en entornos de producción crítica."
+                </p>
+                <span class="code-comment">// Metas estratégicas:</span>
+                <ul class="commitments">
+                    <li>Liderar la adopción de IIoT (Industrial Internet of Things) en plantas manufactureras</li>
+                    <li>Desarrollar algoritmos predictivos para mantenimiento de equipos industriales</li>
+                    <li>Expandir presencia a 5 países con proyectos de automatización integral</li>
+                </ul>
             </div>
+        </div>
+    </section>
+
+    <section id="valores" class="reveal">
+        <div class="section-header">
+            <span class="section-tag">// 02. Fundamentos</span>
+            <h2 class="section-title">Valores Corporativos</h2>
+        </div>
+
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-header">
+                    <div class="value-icon">V</div>
+                    <h3>Valor</h3>
+                </div>
+                <p>Entregamos soluciones que generan ROI tangible: reducción de downtime, optimización de consumo energético y trazabilidad completa de procesos.</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-header">
+                    <div class="value-icon">E</div>
+                    <h3>Eficiencia</h3>
+                </div>
+                <p>Diseñamos código limpio, estructuras de programación modulares y arquitecturas escalables que maximizan el rendimiento de cada ciclo de scan.</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-header">
+                    <div class="value-icon">F</div>
+                    <h3>Futuro</h3>
+                </div>
+                <p>Anticipamos tendencias: desde CODESYS hasta integración con sistemas MES/ERP, preparando a nuestros clientes para la manufactura del mañana.</p>
+            </div>
+        </div>
+
+        <div class="diff-section" style="margin-top: 4rem;">
+            <span class="section-tag">// Principios Operativos</span>
+            <h3 style="font-size: 1.8rem; margin-bottom: 2rem; color: var(--text-primary);">Códigos de Conducta</h3>
             
-            <div class="footer-contact">
-                <a href="mailto:contacto@vef-automatizacion.com" class="contact-link">
-                    <span class="contact-icon">✉</span>
-                    contacto@vef-automatizacion.com
-                </a>
-                <a href="tel:+527222047943" class="contact-link">
-                    <span class="contact-icon">☎</span>
-                    +52 (722)2047943
-                </a>
+            <div class="values-grid" style="margin-top: 2rem;">
+                <div class="value-card" style="border-left: 3px solid var(--accent);">
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">Precisión Técnica</h4>
+                    <p style="font-size: 0.9rem;">Cada línea de código es probada; cada variable de error tiene protocolo de respuesta.</p>
+                </div>
+                <div class="value-card" style="border-left: 3px solid var(--industrial-orange);">
+                    <h4 style="color: var(--industrial-orange); margin-bottom: 0.5rem;">Transparencia</h4>
+                    <p style="font-size: 0.9rem;">Documentación clara de arquitecturas, versiones y cambios en sistemas PLC.</p>
+                </div>
+                <div class="value-card" style="border-left: 3px solid var(--success);">
+                    <h4 style="color: var(--success); margin-bottom: 0.5rem;">Colaboración Industrial</h4>
+                    <p style="font-size: 0.9rem;">Trabajamos junto a operadores de planta, no solo para ellos.</p>
+                </div>
+                <div class="value-card" style="border-left: 3px solid #9b59b6;">
+                    <h4 style="color: #9b59b6; margin-bottom: 0.5rem;">Mejora Continua</h4>
+                    <p style="font-size: 0.9rem;">Análisis post-implementación para optimizar tiempos de ciclo y diagnósticos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="diferenciacion" class="reveal">
+        <div class="section-header">
+            <span class="section-tag">// 03. Ventaja Competitiva</span>
+            <h2 class="section-title">Propuesta de Valor</h2>
+        </div>
+
+        <div class="diff-section">
+            <h3 style="margin-bottom: 1rem; color: var(--text-primary);">¿Por qué VEF vs. integradores tradicionales?</h3>
+            
+            <table class="diff-table">
+                <thead>
+                    <tr>
+                        <th>Competencia Típica</th>
+                        <th>VEF Automatización</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="cross-icon">✗</span> Entrega el PLC programado</td>
+                        <td><span class="check-icon">✓</span> Entrega el PLC + diagnóstico predictivo integrado</td>
+                    </tr>
+                    <tr>
+                        <td><span class="cross-icon">✗</span> Responde cuando falla algo</td>
+                        <td><span class="check-icon">✓</span> Anticipa fallas mediante análisis de #errWord históricos</td>
+                    </tr>
+                    <tr>
+                        <td><span class="cross-icon">✗</span> Programa en una marca</td>
+                        <td><span class="check-icon">✓</span> Especialista multi-plataforma (Siemens, Rockwell, Schneider, CODESYS)</td>
+                    </tr>
+                    <tr>
+                        <td><span class="cross-icon">✗</span> Código estándar</td>
+                        <td><span class="check-icon">✓</span> Bibliotecas propias de módulos de medición reutilizables</td>
+                    </tr>
+                    <tr>
+                        <td><span class="cross-icon">✗</span> Soporte telefónico</td>
+                        <td><span class="check-icon">✓</span> Ingeniero asignado con conocimiento de tu arquitectura específica</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                "No vendemos automatización, vendemos tranquilidad operativa medible en horas de producción recuperadas."
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem; text-align: center;">
+            <span class="section-tag">// Lema Comercial</span>
+            <h3 style="font-size: 2rem; color: var(--accent); margin: 1rem 0;">"Control Preciso. Resultados Medibles."</h3>
+            <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+                <div style="background: var(--secondary); padding: 1rem 2rem; border: 1px solid rgba(100, 255, 218, 0.2);">
+                    <small style="color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">Marketing Técnico</small>
+                    <strong style="color: var(--text-primary);">"Automatización que habla tu idioma industrial"</strong>
+                </div>
+                <div style="background: var(--secondary); padding: 1rem 2rem; border: 1px solid rgba(100, 255, 218, 0.2);">
+                    <small style="color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">Propuestas B2B</small>
+                    <strong style="color: var(--text-primary);">"De la señal al dato, del dato a la decisión"</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="reveal">
+        <div class="section-header">
+            <span class="section-tag">// 04. Líneas de Servicio</span>
+            <h2 class="section-title">Pilares de Servicio</h2>
+        </div>
+
+        <div class="pillars-container">
+            <div class="pillar-card">
+                <span class="pillar-number">01</span>
+                <h3>Consultoría en Automatización Industrial</h3>
+                <ul class="pillar-list">
+                    <li>Auditoría de arquitecturas PLC existentes</li>
+                    <li>Análisis de variables críticas y mapeo de errores (#errWord)</li>
+                    <li>Roadmap de migración a Industria 4.0</li>
+                </ul>
+                <div class="deliverable">
+                    Entregable: Informe técnico con KPIs de mejora proyectados
+                </div>
             </div>
 
-            <div class="footer-social">
-                <a href="#" class="social-link" aria-label="LinkedIn">
-                    <span class="social-icon">in</span>
-                </a>
-                <a href="#" class="social-link" aria-label="GitHub Industrial">
-                    <span class="social-icon">gh</span>
-                </a>
+            <div class="pillar-card">
+                <span class="pillar-number">02</span>
+                <h3>Integración de Sistemas</h3>
+                <ul class="pillar-list">
+                    <li>Programación de PLCs (ladder, SFC, ST/CODESYS)</li>
+                    <li>Configuración de módulos de medición (meterModuleLine1, meterModuleLine3...)</li>
+                    <li>Integración HMI/SCADA con dashboards de error en tiempo real</li>
+                    <li>Comunicación industrial: Profinet, EtherNet/IP, Modbus TCP</li>
+                </ul>
+                <div class="deliverable">
+                    Entregable: Sistema documentado, probado en FAT/SAT, con manuales de operación
+                </div>
             </div>
 
-            <div class="footer-meta">
-                <p class="copyright">&copy; 2026 VEF Automatización. Todos los derechos reservados.</p>
-                <p class="specialties">Especialistas en PLC • CODESYS • IIoT • Industria 4.0</p>
+            <div class="pillar-card">
+                <span class="pillar-number">03</span>
+                <h3>Capacitación Técnica Especializada</h3>
+                <ul class="pillar-list">
+                    <li>Talleres "Desde el cable hasta el dato" (electricistas → programadores)</li>
+                    <li>Curso: "Diagnóstico avanzado de errores en PLC"</li>
+                    <li>Certificación interna: "Operador 4.0 VEF"</li>
+                </ul>
+                <div class="deliverable">
+                    Entregable: Operadores autónomos en resolución de alarmas de primer nivel
+                </div>
+            </div>
+
+            <div class="pillar-card">
+                <span class="pillar-number">04</span>
+                <h3>Mantenimiento Predictivo Digital</h3>
+                <ul class="pillar-list">
+                    <li>Monitoreo remoto de tendencias de error</li>
+                    <li>Alertas automáticas antes de fallas críticas</li>
+                    <li>Actualización de firmware y optimización de tiempos de scan</li>
+                </ul>
+                <div class="deliverable">
+                    Entregable: Uptime >99% contractual
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal">
+        <div class="manifesto">
+            <span class="section-tag" style="color: var(--accent); margin-bottom: 2rem; display: block;">// Manifesto VEF</span>
+            <p class="manifesto-text">
+                En VEF creemos que cada milisegundo de un ciclo de scan cuenta. Que cada variable de error <strong>(#errWord)</strong> es una oportunidad de mejora, no solo un número en un registro. Trabajamos donde la producción no puede detenerse, donde la precisión no es negociable, donde el futuro de la manufactura se escribe en <strong>código robusto</strong> y <strong>arquitecturas confiables</strong>.
+            </p>
+            <p class="manifesto-closing">
+                No somos integradores. Somos arquitectos de continuidad productiva.
+            </p>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div class="footer-content">
+            <div class="footer-logo">VEF Automatización</div>
+            <p class="footer-tagline">"Control Preciso. Resultados Medibles."</p>
+            
+            <div class="footer-links">
+                <a href="mailto:erika.gonzalez@vef-automatizacion.com">erika.gonzalez@vef-automatizacion.com</a>
+                <a href="tel:+527222047943">+52 (722) 2047943</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub Industrial</a>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2024 VEF Automatización. Todos los derechos reservados.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-secondary);">
+                    Especialistas en PLC • CODESYS • IIoT • Industria 4.0
+                </p>
             </div>
         </div>
     </footer>
 
-    <script src="JS.JS"></script>
+    <!-- JavaScript externo -->
+    <script src="JS.js"></script>
 </body>
 </html>
