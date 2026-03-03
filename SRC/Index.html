@@ -3,744 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VEF Automatización - Especialistas en PLC, CODESYS, IIoT e Industria 4.0. Control Preciso. Resultados Medibles.">
     <title>VEF Automatización | Control Preciso. Resultados Medibles.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #0a192f;
-            --secondary: #112240;
-            --accent: #64ffda;
-            --accent-dark: #00b4d8;
-            --text-primary: #e6f1ff;
-            --text-secondary: #8892b0;
-            --industrial-orange: #ff6b35;
-            --error-red: #e63946;
-            --success: #2ecc71;
-            --bg-dark: #020c1b;
-            --grid-color: rgba(100, 255, 218, 0.05);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Background Grid Animation */
-        .bg-grid {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(var(--grid-color) 1px, transparent 1px),
-                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: -1;
-            animation: gridMove 20s linear infinite;
-        }
-
-        @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(2, 12, 27, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            padding: 0.5rem 0;
-            box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--accent);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo::before {
-            content: '◈';
-            color: var(--industrial-orange);
-            font-size: 2rem;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            padding: 6rem 2rem 4rem;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(100, 255, 218, 0.1) 0%, transparent 70%);
-            animation: breathe 4s ease-in-out infinite;
-        }
-
-        @keyframes breathe {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
-        }
-
-        .hero-content {
-            text-align: center;
-            z-index: 1;
-            max-width: 900px;
-        }
-
-        .hero-tag {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: rgba(100, 255, 218, 0.1);
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 0.9rem;
-            margin-bottom: 2rem;
-            letter-spacing: 2px;
-            animation: borderPulse 2s infinite;
-        }
-
-        @keyframes borderPulse {
-            0%, 100% { border-color: var(--accent); box-shadow: 0 0 10px rgba(100, 255, 218, 0.2); }
-            50% { border-color: var(--accent-dark); box-shadow: 0 0 20px rgba(100, 255, 218, 0.4); }
-        }
-
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            font-weight: 300;
-            letter-spacing: 3px;
-        }
-
-        .hero-values {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin: 3rem 0;
-            flex-wrap: wrap;
-        }
-
-        .value-badge {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .value-letter {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--accent);
-            line-height: 1;
-        }
-
-        .value-word {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: transparent;
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            text-decoration: none;
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin-top: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--accent);
-            transition: left 0.3s ease;
-            z-index: -1;
-        }
-
-        .cta-button:hover {
-            color: var(--primary);
-        }
-
-        .cta-button:hover::before {
-            left: 0;
-        }
-
-        /* Section Styles */
-        section {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .section-header {
-            margin-bottom: 4rem;
-            position: relative;
-        }
-
-        .section-tag {
-            color: var(--accent);
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 1rem;
-            letter-spacing: 3px;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 5vw, 3rem);
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: var(--industrial-orange);
-        }
-
-        /* Mission & Vision */
-        .mission-vision {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .mv-card {
-            background: var(--secondary);
-            padding: 3rem;
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-
-        .mv-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent), var(--industrial-orange));
-        }
-
-        .mv-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(100, 255, 218, 0.3);
-        }
-
-        .mv-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-
-        .mv-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-
-        .quote {
-            font-style: italic;
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            border-left: 3px solid var(--accent);
-            padding-left: 1rem;
-            margin: 1.5rem 0;
-            line-height: 1.8;
-        }
-
-        .commitments {
-            list-style: none;
-            margin-top: 1.5rem;
-        }
-
-        .commitments li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        .commitments li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
-
-        /* Values Section */
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .value-card {
-            background: rgba(17, 34, 64, 0.5);
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            padding: 2rem;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .value-card:hover {
-            background: var(--secondary);
-            border-color: var(--accent);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
-        }
-
-        .value-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .value-icon {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--industrial-orange);
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid var(--industrial-orange);
-            border-radius: 50%;
-        }
-
-        .value-card h3 {
-            font-size: 1.3rem;
-            color: var(--text-primary);
-        }
-
-        .value-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.8;
-        }
-
-        /* Differentiation Table */
-        .diff-section {
-            background: var(--secondary);
-            padding: 4rem;
-            margin: 4rem 0;
-            border: 1px solid rgba(100, 255, 218, 0.1);
-        }
-
-        .diff-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 2rem;
-        }
-
-        .diff-table th,
-        .diff-table td {
-            padding: 1.5rem;
-            text-align: left;
-            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
-        }
-
-        .diff-table th {
-            color: var(--accent);
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .diff-table td {
-            color: var(--text-secondary);
-        }
-
-        .diff-table tr:hover td {
-            color: var(--text-primary);
-            background: rgba(100, 255, 218, 0.05);
-        }
-
-        .check-icon {
-            color: var(--success);
-            margin-right: 0.5rem;
-        }
-
-        .cross-icon {
-            color: var(--error-red);
-            margin-right: 0.5rem;
-        }
-
-        .highlight-box {
-            background: rgba(100, 255, 218, 0.1);
-            border-left: 4px solid var(--accent);
-            padding: 1.5rem;
-            margin-top: 2rem;
-            font-style: italic;
-            color: var(--text-primary);
-        }
-
-        /* Service Pillars */
-        .pillars-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .pillar-card {
-            background: linear-gradient(135deg, var(--secondary) 0%, rgba(17, 34, 64, 0.5) 100%);
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            padding: 2.5rem;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .pillar-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--accent);
-            transform: scaleY(0);
-            transition: transform 0.3s ease;
-        }
-
-        .pillar-card:hover::before {
-            transform: scaleY(1);
-        }
-
-        .pillar-number {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 4rem;
-            font-weight: 700;
-            color: rgba(100, 255, 218, 0.1);
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            line-height: 1;
-        }
-
-        .pillar-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-            position: relative;
-            z-index: 1;
-        }
-
-        .pillar-list {
-            list-style: none;
-            margin: 1.5rem 0;
-        }
-
-        .pillar-list li {
-            padding: 0.4rem 0;
-            padding-left: 1.2rem;
-            position: relative;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .pillar-list li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--industrial-orange);
-        }
-
-        .deliverable {
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(100, 255, 218, 0.1);
-            font-size: 0.85rem;
-            color: var(--accent);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Manifesto */
-        .manifesto {
-            background: linear-gradient(135deg, rgba(10, 25, 47, 0.9) 0%, rgba(17, 34, 64, 0.9) 100%);
-            padding: 6rem 4rem;
-            text-align: center;
-            border: 1px solid rgba(100, 255, 218, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .manifesto::before {
-            content: '"';
-            position: absolute;
-            top: -2rem;
-            left: 2rem;
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 20rem;
-            color: rgba(100, 255, 218, 0.05);
-            line-height: 1;
-        }
-
-        .manifesto-text {
-            font-size: 1.3rem;
-            line-height: 2;
-            color: var(--text-secondary);
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .manifesto-text strong {
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        .manifesto-closing {
-            margin-top: 2rem;
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 1.5rem;
-            color: var(--text-primary);
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary);
-            padding: 4rem 2rem 2rem;
-            border-top: 1px solid rgba(100, 255, 218, 0.1);
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-logo {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 2rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-
-        .footer-tagline {
-            color: var(--text-secondary);
-            font-style: italic;
-            margin-bottom: 2rem;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-
-        .copyright {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(100, 255, 218, 0.1);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .mission-vision {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-values {
-                gap: 2rem;
-            }
-            
-            .diff-section {
-                padding: 2rem 1rem;
-            }
-            
-            .manifesto {
-                padding: 3rem 1.5rem;
-            }
-        }
-
-        /* Scroll Reveal Animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Code-like decorative elements */
-        .code-comment {
-            color: var(--text-secondary);
-            font-family: 'Courier New', monospace;
-            font-size: 0.8rem;
-            opacity: 0.6;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="bg-grid"></div>
 
-    <nav id="navbar">
+    <!-- Navegación -->
+    <nav id="navbar" role="navigation" aria-label="Navegación principal">
         <div class="nav-container">
-            <a href="#" class="logo">VEF Automatización</a>
-            <ul class="nav-links">
+            <a href="#" class="logo" aria-label="VEF Automatización Inicio">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">VEF Automatización</span>
+            </a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Abrir menú" aria-expanded="false">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#mision">Misión</a></li>
                 <li><a href="#valores">Valores</a></li>
                 <li><a href="#diferenciacion">Diferenciación</a></li>
@@ -750,9 +33,10 @@
         </div>
     </nav>
 
-    <section class="hero">
+    <!-- Hero Section -->
+    <header class="hero" role="banner">
         <div class="hero-content">
-            <span class="hero-tag">// Sistemas de Control Industrial 4.0</span>
+            <span class="hero-tag" id="typewriter"></span>
             <h1>VEF Automatización</h1>
             <p class="hero-subtitle">Control Preciso. Resultados Medibles.</p>
             
@@ -773,318 +57,291 @@
 
             <a href="#mision" class="cta-button">Explorar Soluciones</a>
         </div>
-    </section>
-
-    <section id="mision" class="reveal">
-        <div class="section-header">
-            <span class="section-tag">// 01. Propósito Estratégico</span>
-            <h2 class="section-title">Misión y Visión</h2>
+        <div class="scroll-indicator" aria-hidden="true">
+            <span class="mouse"></span>
         </div>
+    </header>
 
-        <div class="mission-vision">
-            <div class="mv-card">
-                <div class="mv-icon">🎯</div>
-                <h3>Misión</h3>
-                <p class="quote">
-                    "Transformar la industria mediante soluciones de automatización inteligente que maximicen la eficiencia operativa, minimicen errores de proceso y garanticen la continuidad productiva de nuestros clientes."
+    <main>
+        <!-- Misión y Visión -->
+        <section id="mision" class="section reveal">
+            <div class="section-header">
+                <span class="section-tag">// 01. Propósito Estratégico</span>
+                <h2 class="section-title">Misión y Visión</h2>
+            </div>
+
+            <div class="mission-vision">
+                <article class="mv-card">
+                    <div class="mv-icon" aria-hidden="true">🎯</div>
+                    <h3>Misión</h3>
+                    <blockquote class="quote">
+                        "Transformar la industria mediante soluciones de automatización inteligente que maximicen la eficiencia operativa, minimicen errores de proceso y garanticen la continuidad productiva de nuestros clientes."
+                    </blockquote>
+                    <span class="code-comment">// Compromisos operativos:</span>
+                    <ul class="commitments">
+                        <li>Diseñar e implementar sistemas PLC robustos para control de líneas de producción</li>
+                        <li>Desarrollar diagnósticos avanzados de variables de error (gestión de #errWord)</li>
+                        <li>Proveer integración de módulos de medición industrial (meterModuleLine)</li>
+                        <li>Ofrecer soporte técnico especializado con respuesta ágil</li>
+                    </ul>
+                </article>
+
+                <article class="mv-card">
+                    <div class="mv-icon" aria-hidden="true">🚀</div>
+                    <h3>Visión 2030</h3>
+                    <blockquote class="quote">
+                        "Ser referentes latinoamericanos en automatización industrial 4.0, reconocidos por convertir datos de proceso en decisiones inteligentes y por la fiabilidad de nuestros sistemas de control en entornos de producción crítica."
+                    </blockquote>
+                    <span class="code-comment">// Metas estratégicas:</span>
+                    <ul class="commitments">
+                        <li>Liderar la adopción de IIoT (Industrial Internet of Things) en plantas manufactureras</li>
+                        <li>Desarrollar algoritmos predictivos para mantenimiento de equipos industriales</li>
+                        <li>Expandir presencia a 5 países con proyectos de automatización integral</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- Valores Corporativos -->
+        <section id="valores" class="section reveal">
+            <div class="section-header">
+                <span class="section-tag">// 02. Fundamentos</span>
+                <h2 class="section-title">Valores Corporativos</h2>
+            </div>
+
+            <div class="values-grid">
+                <article class="value-card">
+                    <div class="value-header">
+                        <div class="value-icon" aria-hidden="true">V</div>
+                        <h3>Valor</h3>
+                    </div>
+                    <p>Entregamos soluciones que generan ROI tangible: reducción de downtime, optimización de consumo energético y trazabilidad completa de procesos.</p>
+                </article>
+
+                <article class="value-card">
+                    <div class="value-header">
+                        <div class="value-icon" aria-hidden="true">E</div>
+                        <h3>Eficiencia</h3>
+                    </div>
+                    <p>Diseñamos código limpio, estructuras de programación modulares y arquitecturas escalables que maximizan el rendimiento de cada ciclo de scan.</p>
+                </article>
+
+                <article class="value-card">
+                    <div class="value-header">
+                        <div class="value-icon" aria-hidden="true">F</div>
+                        <h3>Futuro</h3>
+                    </div>
+                    <p>Anticipamos tendencias: desde CODESYS hasta integración con sistemas MES/ERP, preparando a nuestros clientes para la manufactura del mañana.</p>
+                </article>
+            </div>
+
+            <!-- Principios Operativos -->
+            <div class="principles-section">
+                <span class="section-tag">// Principios Operativos</span>
+                <h3 class="principles-title">Códigos de Conducta</h3>
+                
+                <div class="principles-grid">
+                    <article class="principle-card precision">
+                        <h4>Precisión Técnica</h4>
+                        <p>Cada línea de código es probada; cada variable de error tiene protocolo de respuesta.</p>
+                    </article>
+                    <article class="principle-card transparency">
+                        <h4>Transparencia</h4>
+                        <p>Documentación clara de arquitecturas, versiones y cambios en sistemas PLC.</p>
+                    </article>
+                    <article class="principle-card collaboration">
+                        <h4>Colaboración Industrial</h4>
+                        <p>Trabajamos junto a operadores de planta, no solo para ellos.</p>
+                    </article>
+                    <article class="principle-card improvement">
+                        <h4>Mejora Continua</h4>
+                        <p>Análisis post-implementación para optimizar tiempos de ciclo y diagnósticos.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diferenciación -->
+        <section id="diferenciacion" class="section reveal">
+            <div class="section-header">
+                <span class="section-tag">// 03. Ventaja Competitiva</span>
+                <h2 class="section-title">Propuesta de Valor</h2>
+            </div>
+
+            <div class="diff-container">
+                <h3 class="diff-subtitle">¿Por qué VEF vs. integradores tradicionales?</h3>
+                
+                <div class="diff-table-container">
+                    <table class="diff-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Competencia Típica</th>
+                                <th scope="col">VEF Automatización</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="cross-icon" aria-hidden="true">✗</span> Entrega el PLC programado</td>
+                                <td><span class="check-icon" aria-hidden="true">✓</span> Entrega el PLC + diagnóstico predictivo integrado</td>
+                            </tr>
+                            <tr>
+                                <td><span class="cross-icon" aria-hidden="true">✗</span> Responde cuando falla algo</td>
+                                <td><span class="check-icon" aria-hidden="true">✓</span> Anticipa fallas mediante análisis de #errWord históricos</td>
+                            </tr>
+                            <tr>
+                                <td><span class="cross-icon" aria-hidden="true">✗</span> Programa en una marca</td>
+                                <td><span class="check-icon" aria-hidden="true">✓</span> Especialista multi-plataforma (Siemens, Rockwell, Schneider, CODESYS)</td>
+                            </tr>
+                            <tr>
+                                <td><span class="cross-icon" aria-hidden="true">✗</span> Código estándar</td>
+                                <td><span class="check-icon" aria-hidden="true">✓</span> Bibliotecas propias de módulos de medición reutilizables</td>
+                            </tr>
+                            <tr>
+                                <td><span class="cross-icon" aria-hidden="true">✗</span> Soporte telefónico</td>
+                                <td><span class="check-icon" aria-hidden="true">✓</span> Ingeniero asignado con conocimiento de tu arquitectura específica</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="highlight-box">
+                    <p>"No vendemos automatización, vendemos tranquilidad operativa medible en horas de producción recuperadas."</p>
+                </div>
+            </div>
+
+            <!-- Lemas -->
+            <div class="slogans-section">
+                <span class="section-tag">// Lema Comercial</span>
+                <h3 class="main-slogan">"Control Preciso. Resultados Medibles."</h3>
+                <div class="slogans-grid">
+                    <div class="slogan-card">
+                        <small>Marketing Técnico</small>
+                        <strong>"Automatización que habla tu idioma industrial"</strong>
+                    </div>
+                    <div class="slogan-card">
+                        <small>Propuestas B2B</small>
+                        <strong>"De la señal al dato, del dato a la decisión"</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Servicios -->
+        <section id="servicios" class="section reveal">
+            <div class="section-header">
+                <span class="section-tag">// 04. Líneas de Servicio</span>
+                <h2 class="section-title">Pilares de Servicio</h2>
+            </div>
+
+            <div class="pillars-container">
+                <article class="pillar-card">
+                    <span class="pillar-number" aria-hidden="true">01</span>
+                    <h3>Consultoría en Automatización Industrial</h3>
+                    <ul class="pillar-list">
+                        <li>Auditoría de arquitecturas PLC existentes</li>
+                        <li>Análisis de variables críticas y mapeo de errores (#errWord)</li>
+                        <li>Roadmap de migración a Industria 4.0</li>
+                    </ul>
+                    <div class="deliverable">
+                        <span class="deliverable-label">Entregable:</span>
+                        <span>Informe técnico con KPIs de mejora proyectados</span>
+                    </div>
+                </article>
+
+                <article class="pillar-card">
+                    <span class="pillar-number" aria-hidden="true">02</span>
+                    <h3>Integración de Sistemas</h3>
+                    <ul class="pillar-list">
+                        <li>Programación de PLCs (ladder, SFC, ST/CODESYS)</li>
+                        <li>Configuración de módulos de medición (meterModuleLine1, meterModuleLine3...)</li>
+                        <li>Integración HMI/SCADA con dashboards de error en tiempo real</li>
+                        <li>Comunicación industrial: Profinet, EtherNet/IP, Modbus TCP</li>
+                    </ul>
+                    <div class="deliverable">
+                        <span class="deliverable-label">Entregable:</span>
+                        <span>Sistema documentado, probado en FAT/SAT, con manuales de operación</span>
+                    </div>
+                </article>
+
+                <article class="pillar-card">
+                    <span class="pillar-number" aria-hidden="true">03</span>
+                    <h3>Capacitación Técnica Especializada</h3>
+                    <ul class="pillar-list">
+                        <li>Talleres "Desde el cable hasta el dato" (electricistas → programadores)</li>
+                        <li>Curso: "Diagnóstico avanzado de errores en PLC"</li>
+                        <li>Certificación interna: "Operador 4.0 VEF"</li>
+                    </ul>
+                    <div class="deliverable">
+                        <span class="deliverable-label">Entregable:</span>
+                        <span>Operadores autónomos en resolución de alarmas de primer nivel</span>
+                    </div>
+                </article>
+
+                <article class="pillar-card">
+                    <span class="pillar-number" aria-hidden="true">04</span>
+                    <h3>Mantenimiento Predictivo Digital</h3>
+                    <ul class="pillar-list">
+                        <li>Monitoreo remoto de tendencias de error</li>
+                        <li>Alertas automáticas antes de fallas críticas</li>
+                        <li>Actualización de firmware y optimización de tiempos de scan</li>
+                    </ul>
+                    <div class="deliverable">
+                        <span class="deliverable-label">Entregable:</span>
+                        <span>Uptime >99% contractual</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Manifesto -->
+        <section class="section reveal">
+            <div class="manifesto">
+                <span class="section-tag">// Manifesto VEF</span>
+                <blockquote class="manifesto-text">
+                    En VEF creemos que cada milisegundo de un ciclo de scan cuenta. Que cada variable de error <strong>(#errWord)</strong> es una oportunidad de mejora, no solo un número en un registro. Trabajamos donde la producción no puede detenerse, donde la precisión no es negociable, donde el futuro de la manufactura se escribe en <strong>código robusto</strong> y <strong>arquitecturas confiables</strong>.
+                </blockquote>
+                <p class="manifesto-closing">
+                    No somos integradores. Somos arquitectos de continuidad productiva.
                 </p>
-                <span class="code-comment">// Compromisos operativos:</span>
-                <ul class="commitments">
-                    <li>Diseñar e implementar sistemas PLC robustos para control de líneas de producción</li>
-                    <li>Desarrollar diagnósticos avanzados de variables de error (gestión de #errWord)</li>
-                    <li>Proveer integración de módulos de medición industrial (meterModuleLine)</li>
-                    <li>Ofrecer soporte técnico especializado con respuesta ágil</li>
-                </ul>
             </div>
+        </section>
+    </main>
 
-            <div class="mv-card">
-                <div class="mv-icon">🚀</div>
-                <h3>Visión 2030</h3>
-                <p class="quote">
-                    "Ser referentes latinoamericanos en automatización industrial 4.0, reconocidos por convertir datos de proceso en decisiones inteligentes y por la fiabilidad de nuestros sistemas de control en entornos de producción crítica."
-                </p>
-                <span class="code-comment">// Metas estratégicas:</span>
-                <ul class="commitments">
-                    <li>Liderar la adopción de IIoT (Industrial Internet of Things) en plantas manufactureras</li>
-                    <li>Desarrollar algoritmos predictivos para mantenimiento de equipos industriales</li>
-                    <li>Expandir presencia a 5 países con proyectos de automatización integral</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="valores" class="reveal">
-        <div class="section-header">
-            <span class="section-tag">// 02. Fundamentos</span>
-            <h2 class="section-title">Valores Corporativos</h2>
-        </div>
-
-        <div class="values-grid">
-            <div class="value-card">
-                <div class="value-header">
-                    <div class="value-icon">V</div>
-                    <h3>Valor</h3>
-                </div>
-                <p>Entregamos soluciones que generan ROI tangible: reducción de downtime, optimización de consumo energético y trazabilidad completa de procesos.</p>
-            </div>
-
-            <div class="value-card">
-                <div class="value-header">
-                    <div class="value-icon">E</div>
-                    <h3>Eficiencia</h3>
-                </div>
-                <p>Diseñamos código limpio, estructuras de programación modulares y arquitecturas escalables que maximizan el rendimiento de cada ciclo de scan.</p>
-            </div>
-
-            <div class="value-card">
-                <div class="value-header">
-                    <div class="value-icon">F</div>
-                    <h3>Futuro</h3>
-                </div>
-                <p>Anticipamos tendencias: desde CODESYS hasta integración con sistemas MES/ERP, preparando a nuestros clientes para la manufactura del mañana.</p>
-            </div>
-        </div>
-
-        <div class="diff-section" style="margin-top: 4rem;">
-            <span class="section-tag">// Principios Operativos</span>
-            <h3 style="font-size: 1.8rem; margin-bottom: 2rem; color: var(--text-primary);">Códigos de Conducta</h3>
-            
-            <div class="values-grid" style="margin-top: 2rem;">
-                <div class="value-card" style="border-left: 3px solid var(--accent);">
-                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">Precisión Técnica</h4>
-                    <p style="font-size: 0.9rem;">Cada línea de código es probada; cada variable de error tiene protocolo de respuesta.</p>
-                </div>
-                <div class="value-card" style="border-left: 3px solid var(--industrial-orange);">
-                    <h4 style="color: var(--industrial-orange); margin-bottom: 0.5rem;">Transparencia</h4>
-                    <p style="font-size: 0.9rem;">Documentación clara de arquitecturas, versiones y cambios en sistemas PLC.</p>
-                </div>
-                <div class="value-card" style="border-left: 3px solid var(--success);">
-                    <h4 style="color: var(--success); margin-bottom: 0.5rem;">Colaboración Industrial</h4>
-                    <p style="font-size: 0.9rem;">Trabajamos junto a operadores de planta, no solo para ellos.</p>
-                </div>
-                <div class="value-card" style="border-left: 3px solid #9b59b6;">
-                    <h4 style="color: #9b59b6; margin-bottom: 0.5rem;">Mejora Continua</h4>
-                    <p style="font-size: 0.9rem;">Análisis post-implementación para optimizar tiempos de ciclo y diagnósticos.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="diferenciacion" class="reveal">
-        <div class="section-header">
-            <span class="section-tag">// 03. Ventaja Competitiva</span>
-            <h2 class="section-title">Propuesta de Valor</h2>
-        </div>
-
-        <div class="diff-section">
-            <h3 style="margin-bottom: 1rem; color: var(--text-primary);">¿Por qué VEF vs. integradores tradicionales?</h3>
-            
-            <table class="diff-table">
-                <thead>
-                    <tr>
-                        <th>Competencia Típica</th>
-                        <th>VEF Automatización</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><span class="cross-icon">✗</span> Entrega el PLC programado</td>
-                        <td><span class="check-icon">✓</span> Entrega el PLC + diagnóstico predictivo integrado</td>
-                    </tr>
-                    <tr>
-                        <td><span class="cross-icon">✗</span> Responde cuando falla algo</td>
-                        <td><span class="check-icon">✓</span> Anticipa fallas mediante análisis de #errWord históricos</td>
-                    </tr>
-                    <tr>
-                        <td><span class="cross-icon">✗</span> Programa en una marca</td>
-                        <td><span class="check-icon">✓</span> Especialista multi-plataforma (Siemens, Rockwell, Schneider, CODESYS)</td>
-                    </tr>
-                    <tr>
-                        <td><span class="cross-icon">✗</span> Código estándar</td>
-                        <td><span class="check-icon">✓</span> Bibliotecas propias de módulos de medición reutilizables</td>
-                    </tr>
-                    <tr>
-                        <td><span class="cross-icon">✗</span> Soporte telefónico</td>
-                        <td><span class="check-icon">✓</span> Ingeniero asignado con conocimiento de tu arquitectura específica</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="highlight-box">
-                "No vendemos automatización, vendemos tranquilidad operativa medible en horas de producción recuperadas."
-            </div>
-        </div>
-
-        <div style="margin-top: 3rem; text-align: center;">
-            <span class="section-tag">// Lema Comercial</span>
-            <h3 style="font-size: 2rem; color: var(--accent); margin: 1rem 0;">"Control Preciso. Resultados Medibles."</h3>
-            <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
-                <div style="background: var(--secondary); padding: 1rem 2rem; border: 1px solid rgba(100, 255, 218, 0.2);">
-                    <small style="color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">Marketing Técnico</small>
-                    <strong style="color: var(--text-primary);">"Automatización que habla tu idioma industrial"</strong>
-                </div>
-                <div style="background: var(--secondary); padding: 1rem 2rem; border: 1px solid rgba(100, 255, 218, 0.2);">
-                    <small style="color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">Propuestas B2B</small>
-                    <strong style="color: var(--text-primary);">"De la señal al dato, del dato a la decisión"</strong>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="servicios" class="reveal">
-        <div class="section-header">
-            <span class="section-tag">// 04. Líneas de Servicio</span>
-            <h2 class="section-title">Pilares de Servicio</h2>
-        </div>
-
-        <div class="pillars-container">
-            <div class="pillar-card">
-                <span class="pillar-number">01</span>
-                <h3>Consultoría en Automatización Industrial</h3>
-                <ul class="pillar-list">
-                    <li>Auditoría de arquitecturas PLC existentes</li>
-                    <li>Análisis de variables críticas y mapeo de errores (#errWord)</li>
-                    <li>Roadmap de migración a Industria 4.0</li>
-                </ul>
-                <div class="deliverable">
-                    Entregable: Informe técnico con KPIs de mejora proyectados
-                </div>
-            </div>
-
-            <div class="pillar-card">
-                <span class="pillar-number">02</span>
-                <h3>Integración de Sistemas</h3>
-                <ul class="pillar-list">
-                    <li>Programación de PLCs (ladder, SFC, ST/CODESYS)</li>
-                    <li>Configuración de módulos de medición (meterModuleLine1, meterModuleLine3...)</li>
-                    <li>Integración HMI/SCADA con dashboards de error en tiempo real</li>
-                    <li>Comunicación industrial: Profinet, EtherNet/IP, Modbus TCP</li>
-                </ul>
-                <div class="deliverable">
-                    Entregable: Sistema documentado, probado en FAT/SAT, con manuales de operación
-                </div>
-            </div>
-
-            <div class="pillar-card">
-                <span class="pillar-number">03</span>
-                <h3>Capacitación Técnica Especializada</h3>
-                <ul class="pillar-list">
-                    <li>Talleres "Desde el cable hasta el dato" (electricistas → programadores)</li>
-                    <li>Curso: "Diagnóstico avanzado de errores en PLC"</li>
-                    <li>Certificación interna: "Operador 4.0 VEF"</li>
-                </ul>
-                <div class="deliverable">
-                    Entregable: Operadores autónomos en resolución de alarmas de primer nivel
-                </div>
-            </div>
-
-            <div class="pillar-card">
-                <span class="pillar-number">04</span>
-                <h3>Mantenimiento Predictivo Digital</h3>
-                <ul class="pillar-list">
-                    <li>Monitoreo remoto de tendencias de error</li>
-                    <li>Alertas automáticas antes de fallas críticas</li>
-                    <li>Actualización de firmware y optimización de tiempos de scan</li>
-                </ul>
-                <div class="deliverable">
-                    Entregable: Uptime >99% contractual
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="reveal">
-        <div class="manifesto">
-            <span class="section-tag" style="color: var(--accent); margin-bottom: 2rem; display: block;">// Manifesto VEF</span>
-            <p class="manifesto-text">
-                En VEF creemos que cada milisegundo de un ciclo de scan cuenta. Que cada variable de error <strong>(#errWord)</strong> es una oportunidad de mejora, no solo un número en un registro. Trabajamos donde la producción no puede detenerse, donde la precisión no es negociable, donde el futuro de la manufactura se escribe en <strong>código robusto</strong> y <strong>arquitecturas confiables</strong>.
-            </p>
-            <p class="manifesto-closing">
-                No somos integradores. Somos arquitectos de continuidad productiva.
-            </p>
-        </div>
-    </section>
-
-    <footer id="contacto">
+    <!-- Footer -->
+    <footer id="contacto" role="contentinfo">
         <div class="footer-content">
-            <div class="footer-logo">VEF Automatización</div>
-            <p class="footer-tagline">"Control Preciso. Resultados Medibles."</p>
+            <div class="footer-brand">
+                <div class="footer-logo">VEF Automatización</div>
+                <p class="footer-tagline">"Control Preciso. Resultados Medibles."</p>
+            </div>
             
-            <div class="footer-links">
-                <a href="mailto:contacto@vef-automatizacion.com">contacto@vef-automatizacion.com</a>
-                <a href="tel:+1234567890">+1 (234) 567-890</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">GitHub Industrial</a>
+            <div class="footer-contact">
+                <a href="mailto:contacto@vef-automatizacion.com" class="contact-link">
+                    <span class="contact-icon">✉</span>
+                    contacto@vef-automatizacion.com
+                </a>
+                <a href="tel:+1234567890" class="contact-link">
+                    <span class="contact-icon">☎</span>
+                    +1 (234) 567-890
+                </a>
             </div>
 
-            <div class="copyright">
-                <p>&copy; 2025 VEF Automatización. Todos los derechos reservados.</p>
-                <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-secondary);">
-                    Especialistas en PLC • CODESYS  • Industria 4.0
-                </p>
+            <div class="footer-social">
+                <a href="#" class="social-link" aria-label="LinkedIn">
+                    <span class="social-icon">in</span>
+                </a>
+                <a href="#" class="social-link" aria-label="GitHub Industrial">
+                    <span class="social-icon">gh</span>
+                </a>
+            </div>
+
+            <div class="footer-meta">
+                <p class="copyright">&copy; 2024 VEF Automatización. Todos los derechos reservados.</p>
+                <p class="specialties">Especialistas en PLC • CODESYS • IIoT • Industria 4.0</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Scroll reveal animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Dynamic typing effect for hero (optional enhancement)
-        const heroTag = document.querySelector('.hero-tag');
-        const text = heroTag.textContent;
-        heroTag.textContent = '';
-        let i = 0;
-        
-        function typeWriter() {
-            if (i < text.length) {
-                heroTag.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 50);
-            }
-        }
-        
-        // Start typing effect after page load
-        window.addEventListener('load', () => {
-            setTimeout(typeWriter, 500);
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
