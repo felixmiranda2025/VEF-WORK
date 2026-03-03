@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEF Automatización | Cuéntanos tu proyecto</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- CSS externo -->
+    <link rel="stylesheet" href="Style.css">
+    <style>
+        /* Estilos adicionales específicos para el formulario (pueden ir en Style.css, pero los pongo aquí para mantener todo junto) */
+        .form-container {
+            max-width: 800px;
+            margin: 8rem auto 4rem;
+            background: var(--secondary);
+            padding: 3rem;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            box-shadow: 0 10px 30px -15px rgba(0,0,0,0.5);
+        }
+        .form-group {
+            margin-bottom: 2rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: var(--accent);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(10, 25, 47, 0.8);
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+        }
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--accent);
+        }
+        .checkbox-group label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        .checkbox-group a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--accent);
+        }
+        .btn-enviar {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            padding: 1rem 3rem;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        .btn-enviar:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+        .error-message {
+            color: var(--error-red);
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">VEF Automatización</a>
+            <ul class="nav-links">
+                <li><a href="index.html#mision">Misión</a></li>
+                <li><a href="index.html#valores">Valores</a></li>
+                <li><a href="index.html#diferenciacion">Diferenciación</a></li>
+                <li><a href="index.html#servicios">Servicios</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Formulario de proyecto -->
+    <section class="form-container reveal">
+        <div class="section-header">
+            <span class="section-tag">// 05. Cuéntanos tu proyecto</span>
+            <h2 class="section-title">Solicitud de cotización</h2>
+        </div>
+
+        <form id="projectForm">
+            <div class="form-group">
+                <label for="empresa">¿Cuál es el nombre de tu empresa?</label>
+                <input type="text" id="empresa" name="empresa" placeholder="Ej: Industrias VEF" required>
+            </div>
+
+            <div class="form-group">
+                <label for="software">¿Qué software / plataforma utilizas?</label>
+                <input type="text" id="software" name="software" placeholder="Ej: Siemens TIA Portal, CODESYS, Rockwell..." required>
+            </div>
+
+            <div class="form-group">
+                <label for="alcance">Describe el alcance de tu proyecto</label>
+                <textarea id="alcance" name="alcance" placeholder="Detalla los requerimientos, tipo de automatización, módulos de medición, etc." required></textarea>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="terminos" name="terminos" required>
+                <label for="terminos">Acepto los <a href="#" id="showTerms">términos y condiciones</a> de VEF Automatización.</label>
+            </div>
+
+            <!-- Términos y condiciones (oculto, se muestra al hacer clic) -->
+            <div id="termsModal" style="display: none; background: var(--primary); padding: 2rem; margin: 2rem 0; border: 1px solid var(--accent);">
+                <h3 style="color: var(--accent); margin-bottom: 1rem;">Términos y Condiciones</h3>
+                <p style="color: var(--text-secondary);">Al enviar este formulario, autorizas a VEF Automatización a contactarte para dar seguimiento a tu solicitud. Tus datos serán tratados con confidencialidad y únicamente con fines comerciales. Para más información, consulta nuestra Política de Privacidad.</p>
+                <button type="button" id="closeTerms" style="background: transparent; border: 1px solid var(--accent); color: var(--accent); padding: 0.5rem 1rem; margin-top: 1rem; cursor: pointer;">Cerrar</button>
+            </div>
+
+            <button type="submit" class="btn-enviar">Enviar solicitud</button>
+            <div id="formError" class="error-message"></div>
+        </form>
+    </section>
+
+    <!-- Footer (idéntico al del index) -->
+    <footer id="contacto" style="margin-top: 4rem;">
+        <div class="footer-content">
+            <div class="footer-logo">VEF Automatización</div>
+            <p class="footer-tagline">"Control Preciso. Resultados Medibles."</p>
+            
+            <div class="footer-links">
+                <a href="mailto:erika.gonzalez@vef-automatizacion.com">erika.gonzalez@vef-automatizacion.com</a>
+                <a href="https://wa.me/527222047943?text=Hola%2C%20busco%20cotización%20para%20mi%20empresa">+52 (722) 2047943</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub Industrial</a>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2026 VEF Automatización. Todos los derechos reservados.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-secondary);">
+                    Especialistas en PLC • CODESYS • Industria 4.0
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript específico para esta página -->
+    <script>
+        // Mostrar/ocultar términos
+        document.getElementById('showTerms').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('termsModal').style.display = 'block';
+        });
+        document.getElementById('closeTerms').addEventListener('click', function() {
+            document.getElementById('termsModal').style.display = 'none';
+        });
+
+        // Manejo del envío del formulario
+        document.getElementById('projectForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Validar checkbox
+            if (!document.getElementById('terminos').checked) {
+                document.getElementById('formError').textContent = 'Debes aceptar los términos y condiciones.';
+                return;
+            }
+
+            // Recoger datos
+            const empresa = document.getElementById('empresa').value.trim();
+            const software = document.getElementById('software').value.trim();
+            const alcance = document.getElementById('alcance').value.trim();
+
+            if (!empresa || !software || !alcance) {
+                document.getElementById('formError').textContent = 'Por favor completa todos los campos.';
+                return;
+            }
+
+            // Construir el cuerpo del correo
+            const asunto = encodeURIComponent('Solicitud de proyecto desde web');
+            const cuerpo = encodeURIComponent(
+                `Empresa: ${empresa}\n` +
+                `Software / Plataforma: ${software}\n` +
+                `Alcance del proyecto:\n${alcance}`
+            );
+
+            // Abrir cliente de correo
+            window.location.href = `mailto:erika.gonzalez@vef-automatizacion.com?subject=${asunto}&body=${cuerpo}`;
+
+            // Opcional: limpiar formulario o mostrar mensaje
+            document.getElementById('formError').style.color = 'var(--success)';
+            document.getElementById('formError').textContent = 'Correo preparado. Revisa tu cliente de correo para enviar.';
+        });
+
+        // Reutilizar efectos del navbar y scroll reveal (mismo código de JS.js)
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
